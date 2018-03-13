@@ -7,7 +7,10 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    lng: 128.0,
+    lat: 33.3,
+    scale: 18
   },
   //事件处理函数
   bindViewTap: function() {
@@ -41,10 +44,28 @@ Page({
           })
         }
       })
-    }
+    };
+    this.getLocation();
   },
   onReady: function(){
     //生命周期函数--监听页面初次渲染完成
+    
+  },
+  getLocation: function (e) {
+    console.log(e)
+    var that = this
+    wx.getLocation({
+      type: 'wgs84', // 默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标  
+      success: function (res) {
+        console.log(res)
+        that.setData({
+          lng: res.longitude,
+          lat: res.latitude
+        });
+        console.log(that.data.lng);
+        console.log(that.data.lat);
+      }
+    　})
   },
   getUserInfo: function(e) {
     console.log(e)
