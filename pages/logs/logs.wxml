@@ -1,6 +1,11 @@
-<!--logs.wxml-->
-<view class="container log-list">
-  <!-- <block wx:for="{{logs}}" wx:for-item="log">
-    <text class="log-item">{{index + 1}}. {{log}}</text>
-  </block> -->
+<loading hidden="{{hidden}}">
+  加载中...
+</loading>
+<view class="first line">
+  <navigator url='/pages/information/information'><image class='userinfo-avatar' src='{{userInfo.avatarUrl}}'></image>
+  <text class='nickName'>昵称：{{userInfo.nickName}}</text></navigator>
+</view>
+<view wx:for="{{list}}" class="second line">
+  <image class='settings' src='{{item.imageUrl}}'></image><text class='settings-text'>{{item.name}}</text>
+  <image class='forward' src='{{item.iconUrl}}'></image>
 </view>

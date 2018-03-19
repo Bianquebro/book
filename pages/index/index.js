@@ -10,7 +10,7 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     lng: 128.0,
     lat: 33.3,
-    scale: 18
+    scale: 15
   },
   //事件处理函数
   bindViewTap: function() {
